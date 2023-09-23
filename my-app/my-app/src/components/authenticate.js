@@ -2,6 +2,7 @@ import React from "react";
 
 import withRouter from "./withRouter";
 
+//Klassenkonstruktor
 class Authenticate extends React.Component {
   constructor(props) {
     super(props);
@@ -11,14 +12,14 @@ class Authenticate extends React.Component {
     this.onValueChange = this.onValueChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+  //zuweisung des inputs
   onValueChange(ev) {
     console.log(ev);
     const { id, value } = ev.target;
 
     this.setState({ [id]: value });
   }
-
+  //input zu anfrage
   async onSubmit() {
     console.log(this.props);
 
@@ -34,7 +35,7 @@ class Authenticate extends React.Component {
       }
     );
   }
-
+  //renderen des formulars
   render() {
     const { name, password } = this.state;
 

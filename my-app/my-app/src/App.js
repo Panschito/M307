@@ -7,7 +7,7 @@ import { DeleteCategory } from "./components/categoryDelete";
 import { ProductCreateForm } from "./components/productCreateForm";
 import { DeleteProduct } from "./components/productDelete";
 import { Routes, Route, Link } from "react-router-dom";
-
+//Applikation
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +16,7 @@ class App extends React.Component {
       productCreateForm: false,
     };
   }
+  //rendern der app und das ganze routing
   render() {
     return (
       <div className="App">

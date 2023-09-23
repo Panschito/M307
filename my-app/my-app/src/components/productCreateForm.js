@@ -1,5 +1,5 @@
 import React from "react";
-
+//Klassenkonstruktor
 export class ProductCreateForm extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +44,6 @@ export class ProductCreateForm extends React.Component {
     } = this.state;
 
     return (
-      // product_id,sku,active,id_category,name,image,description,price,stock
       <div>
         <form>
           <label>
