@@ -1,32 +1,69 @@
 import React from "react";
-import { useState } from "react";
-import ReactDOM from "react-dom/client";
 
-export class Authenticate extends React.Component() {
+import withRouter from "./withRouter";
+
+class Authenticate extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+
+    this.onValueChange = this.onValueChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onValueChange(ev) {
+    console.log(ev);
+    const { id, value } = ev.target;
+
+    this.setState({ [id]: value });
+  }
+
+  async onSubmit() {
+    console.log(this.props);
+
+    await fetch(
+      "https://campus.csbe.ch/sollberger-manuel/uek307/Authenticate",
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "post",
+        body: JSON.stringify(this.state),
+      }
+    );
+  }
+
   render() {
-    const [name, password, setName, setPassword] = useState("");
+    const { name, password } = this.state;
 
     return (
       <form>
         <label>
           Enter your Name:
           <input
+            id="username"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={this.onValueChange}
           />
         </label>
-        <lable>
+        <label>
           Password
           <input
-            type="passeord"
+            id="password"
+            type="password"
             value={password}
-            onChange={(p) => setPassword(p.target.value)}
+            onChange={this.onValueChange}
           />
-        </lable>
+        </label>
+        <div className="btn btn-primary" onClick={this.onSubmit}>
+          Submit
+        </div>
       </form>
     );
   }
 }
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Authenticate />);
+
+export default withRouter(Authenticate);
