@@ -1,6 +1,6 @@
 import React from "react";
 
-export class ProductCreateForm extends React.Component {
+export class showAllProducts extends React.Component {
   constructor(props) {
     super(props);
 
@@ -8,6 +8,12 @@ export class ProductCreateForm extends React.Component {
 
     this.onValueChange = this.onValueChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+
+    this.loadData();
+  }
+
+  async loadData() {
+    await fetch();
   }
 
   onValueChange(ev) {
@@ -21,10 +27,12 @@ export class ProductCreateForm extends React.Component {
     const { edit, history } = this.props;
     console.log(this.state);
 
+    const method = edit ? "put" : "post";
+
     await fetch(
-      `https://campus.csbe.ch/sollberger-manuel/uek307/Product/${this.state.sku}`,
+      "https://campus.csbe.ch/sollberger-manuel/uek307/Authenticate",
       {
-        method: "PUT",
+        method,
         body: JSON.stringify(this.state),
       }
     );
@@ -44,7 +52,6 @@ export class ProductCreateForm extends React.Component {
     } = this.state;
 
     return (
-      // product_id,sku,active,id_category,name,image,description,price,stock
       <div>
         <form>
           <label>

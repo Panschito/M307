@@ -7,6 +7,7 @@ export class DeleteProduct extends React.Component {
     this.state = {};
 
     this.onValueChange = this.onValueChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onValueChange(ev) {
@@ -24,7 +25,7 @@ export class DeleteProduct extends React.Component {
       `https://campus.csbe.ch/sollberger-manuel/uek307/Product/${this.state.sku}`,
       {
         method: "delete",
-        body: this.state,
+        body: JSON.stringify(this.state),
       }
     );
   }

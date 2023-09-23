@@ -7,6 +7,7 @@ export class DeleteCategory extends React.Component {
     this.state = {};
 
     this.onValueChange = this.onValueChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onValueChange(ev) {
@@ -23,7 +24,7 @@ export class DeleteCategory extends React.Component {
       `https://campus.csbe.ch/sollberger-manuel/uek307/Product/${this.state.category_id}`,
       {
         method: "delete",
-        body: this.state,
+        body: JSON.stringify(this.state),
       }
     );
   }

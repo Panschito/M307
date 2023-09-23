@@ -7,6 +7,7 @@ export class CategoryCreate extends React.Component {
     this.state = {};
 
     this.onValueChange = this.onValueChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onValueChange(ev) {
@@ -18,12 +19,12 @@ export class CategoryCreate extends React.Component {
   async onSubmit() {
     const { edit, history } = this.props;
     console.log(this.state);
-
+    const method = edit ? "put" : "post";
     await fetch(
       `https://campus.csbe.ch/sollberger-manuel/uek307/Product/${this.state.sku}`,
       {
-        method: "delete",
-        body: this.state,
+        method,
+        body: JSON.stringify(this.state),
       }
     );
   }

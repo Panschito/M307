@@ -33,17 +33,14 @@ class App extends React.Component {
 
         <Routes>
           <Route path="authenticate" element={<Authenticate />} />
-          <Route
-            path="createProduct"
-            element={<ProductCreateForm edit={false} />}
-          />
-          <Route
-            path="editProduct"
-            element={<ProductCreateForm edit={true} />}
-          />
+          <Route path="createProduct" element={<ProductCreateForm />} />
+          <Route path="editProduct" element={<ProductCreateForm />} />
           <Route path="deleteProduct" element={<DeleteProduct />} />
-          <Route path="createCategory" element={<CategoryCreate />} />
-          <Route path="editCategory" element={<CategoryCreate />} />
+          <Route
+            path="createCategory"
+            element={<CategoryCreate edit={false} />}
+          />
+          <Route path="editCategory" element={<CategoryCreate edit={true} />} />
           <Route path="deleteCategory" element={<DeleteCategory />} />
         </Routes>
       </div>
